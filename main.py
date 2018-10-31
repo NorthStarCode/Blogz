@@ -39,11 +39,11 @@ def new_post():
 
     if not is_blank(blog_title):
         title_error = 'Please enter a title for your blog'
-        blog_title = ''
+        #blog_title = ''
 
     if not is_blank(blog_body):
         body_error = 'Please enter the body for your blog'
-        blog_body = ''
+        #blog_body = ''
 
     if request.method == 'POST' and not title_error and not body_error:
         new_blog = Blog(blog_title, blog_body)

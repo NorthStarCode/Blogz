@@ -1,0 +1,38 @@
+
+h1 {
+  text-align: center;
+   font-family: 'Mali', cursive;
+   color: blue;
+}
+
+body,
+  header,
+  footer {
+  background-color: black;
+  font-family: 'Mali', cursive;
+  color: blue;
+}
+
+.error {
+  color: red;
+}
+
+title {
+  color: blue;
+  font-weight: 600;
+  font-size: 75px;
+  margin: 10px;
+  font-family: 'Mali', cursive;
+}
+
+ul {
+  list-style: none;
+}
+
+#blog_title {
+  text-align: left;
+}
+
+p {
+    color: red;
+}

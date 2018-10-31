@@ -4,11 +4,11 @@
     <h1 style="text-align: center;">Build a Blog</h1>
     </br>
 
-         <ul style="list-style: none;">
+         <ul>
              {% for blog in blogs %}
-             <li><h1><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h1>
+             <li><h1 id="blog_title"><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h1>
              </br>
-             {{blog.body}}
+             <p>{{blog.body}}</p>
              </br>
              <hr>
              </li>
