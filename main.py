@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
-import configs  #imports password for database
+import configs  #imports password for database, use in config of SQLALCHEMY_DATABASE_URI
 
 
 
@@ -18,6 +18,7 @@ class Blog(db.Model):
     def __init__(self, title, body):
         self.title = title
         self.body = body
+
 
 def is_blank(entry):
     return bool(entry and entry.strip())
@@ -48,11 +49,9 @@ def new_post():
         new_blog = Blog(blog_title, blog_body)
         db.session.add(new_blog)
         db.session.commit()
-        blogid = Blog.query.order_by(Blog.id.desc()).first()
+        blogid = Blog.query.order_by(Blog.id.desc()).first()  #sorts query by desc order and grabs last user id
         blog_id=blogid.id
-
-        return redirect('/blog?id={}'.format(blog_id))
-
+        return redirect('/blog?id={}'.format(blog_id)) #retunrs user to new post entry page
 
     else:
         return render_template('newpost.html',
@@ -65,7 +64,7 @@ def new_post():
 @app.route("/blog", methods=['POST', 'GET'])
 def blog_post():
 
-    blogs = Blog.query.all()
+    blogs = Blog.query.order_by(Blog.id.desc()).all()  #order posts by desc order on main blog page
     blog_id = request.args.get('id')
     if request.method == 'GET' and is_blank(blog_id):
         blog_id = int(blog_id)
@@ -74,10 +73,10 @@ def blog_post():
         ptitle="Blog Post",
         blog=blog)
 
-
     return render_template('blog.html',
     ptitle="Blog",
     blogs=blogs)
+
 
 if __name__ == '__main__':
     app.run()
