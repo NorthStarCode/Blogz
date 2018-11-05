@@ -23,6 +23,9 @@ class Blog(db.Model):
 def is_blank(entry):
     return bool(entry and entry.strip())
 
+@app.route("/") #directs / to /blogs
+def homepage():
+    return redirect('/blog')
 
 @app.route("/newpost")
 def index():
