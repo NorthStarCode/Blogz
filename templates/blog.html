@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="text-align: center;">Build a Blog</h1>
+    <h1 style="text-align: center;">Blogz</h1>
     </br>
 
          <ul>
@@ -10,6 +10,9 @@
              </br>
              <p>{{blog.body}}</p>
              </br>
+             <p class="dateblog">Posted on: {{ blog.dateblog}}</p>
+            <p class="user">Posted by: <a href="/blog?userid={{blog.owner_id}}">{{ blog.owner.username }}</a></p>
+
              <hr>
              </li>
              {% endfor %}

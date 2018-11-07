@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align: center;">Blogz</h1>
+    </br>
+
+         <ul>
+             {% for b in blog %}
+             <li><h1 id="blog_title"><a href="/blog?id={{b.id}}">{{b.title}}</a></h1>
+             </br>
+             <p>{{b.body}}</p>
+             </br>
+             <hr>
+             </li>
+             {% endfor %}
+         </ul>
+
+{% endblock %}
