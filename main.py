@@ -191,7 +191,14 @@ def new_post():
 @app.route("/blog", methods=['POST', 'GET'])
 def blog_post():
 
-    blogs = Blog.query.order_by(Blog.dateblog.desc())   #orders post by date time submitted
+    #adds pagination for blog posts
+    page = request.args.get('page')
+    if request.method == 'GET' and is_blank(page):
+        page=int(page)
+    else:
+        page=1
+    per_page = 5
+    blogs = Blog.query.order_by(Blog.dateblog.desc()).paginate(page,per_page,error_out=False)   #orders post by date time submitted
     blog_id = request.args.get('id')
     user_id = request.args.get('userid')
 
