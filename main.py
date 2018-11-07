@@ -211,20 +211,23 @@ def blog_post():
 
     if request.method == 'GET' and is_blank(user_id):
         user_id = int(user_id)
-        blog = Blog.query.filter_by(owner_id=user_id).order_by(Blog.dateblog.desc()).all()  #orders blogs by specified user by desc date
+        #blog = Blog.query.filter_by(owner_id=user_id).order_by(Blog.dateblog.desc()).all()  #orders blogs by specified user by desc date 
+        blogs = Blog.query.filter_by(owner_id=user_id).order_by(Blog.dateblog.desc()).paginate(page,per_page,error_out=False)
         return render_template('userposts.html',
-        ptitle="Blog Posts",
-        blog=blog)  #renders page with all blogs from specified user id
+        ptitle="Blogs by User",
+        page_title = "Blogs by User",
+        blogs=blogs)  #renders page with all blogs from specified user id
 
     return render_template('blog.html',
-    ptitle="Blog",
+    ptitle="All Blog Posts",
+    page_title = "All Blog Posts",
     blogs=blogs)    #renders page with all blog entries
 
 
 @app.route('/logout', methods=['GET'])
 def logout():
     del session['username'] #logs user out by deleting session identifier
-    return redirect('/')
+    return redirect('/blog')
 
 
 if __name__ == '__main__':
