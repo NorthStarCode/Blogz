@@ -78,13 +78,13 @@ def login():
             session['username'] = username    #remembers user in this session
             return redirect('/newpost')
         elif not is_blank(password) or not is_blank(username):
-            flash('Username or Password field was left blank!', 'error')
+            flash('ERROR: Username or Password field was left blank!', 'error')
             return redirect ('/login')
         elif not user:
-            flash('Username not in system!', 'error')
+            flash('ERROR: Username not in system!', 'error')
             return redirect ('/login')
         else:
-            flash('User password is incorrect!', 'error')
+            flash('ERROR: User password is incorrect!', 'error')
             return redirect ('/login')
        
     return render_template('login.html')
