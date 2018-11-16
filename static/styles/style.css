@@ -1,17 +1,32 @@
 
+
+body,
+header,
+footer {
+background-color: grey;
+font-family: 'Mali', cursive;
+color: blue;
+font-size: 20px;
+}
+
+.header {
+text-align: center;
+}
+
+#website_title {
+  color: greenyellow;
+  font-weight: 600;
+  font-size: 75px;
+  margin: 10px;
+  font-family: 'Mali', cursive;
+}
+
 h1 {
   text-align: center;
    font-family: 'Mali', cursive;
-   color: blue;
+   color: orange;
 }
 
-body,
-  header,
-  footer {
-  background-color: grey;
-  font-family: 'Mali', cursive;
-  color: blue;
-}
 
 .error {
   color: red;
@@ -26,6 +41,18 @@ title {
   font-family: 'Mali', cursive;
 }
 
+
+.navigation ul {
+  margin: 0;
+  text-align: center;
+}
+
+.navigation li {
+  font-weight: 100;
+  letter-spacing: 0px;
+  display: inline;
+}
+
 ul {
   list-style: none;
 }
@@ -34,6 +61,22 @@ ul {
   text-align: left;
 }
 
+.dateblog {
+  color: rgb(238, 197, 92);
+  font-size: 12px;
+}
+
 p {
     color: red;
+    font-size: 20px;
+}
+
+
+.user {
+  font-size: 15px;
+}
+
+#note {
+  font-size: 11px;
+  color: black;
 }
